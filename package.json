@@ -5,7 +5,7 @@
   "author": "Wietse Wind <mail@wietse.com>",
   "private": false,
   "dependencies": {
-    "ripple-lib": "^0.18.1"
+    "ripple-lib": "^1.1.2"
   },
   "engines": {
     "node": ">= 6.0.0",

@@ -1,10 +1,14 @@
 const rippleLib  = require('ripple-lib').RippleAPI
+const fs         = require('fs')
 const api        = new rippleLib()
 const lookFor    = process.argv.slice(2).map(function (f) { return f.toLowerCase().replace(/[^a-zA-Z0-9]/g, '') })
 
 console.log('\x1b[36m%s\x1b[0m', 'XRP Vanity Wallet Generator')
 console.log('\x1b[36m%s\x1b[0m', '   by @WietseWind (Twitter) /u/pepperew (Reddit)')
 console.log('')
+
+//only look for nixer - make it possible to start with pm2
+lookFor.push('nixer')
 
 if (lookFor.length > 0) {
 
@@ -20,7 +24,7 @@ if (lookFor.length > 0) {
   const regexp = new RegExp(re, 'i')
 
   console.log('')
-  console.log('\x1b[33m%s\x1b[0m', '-- Press Control C to quit --');
+  console.log('-- Press Control C to quit --');
   console.log('')
 
   for (let i = 0;;i++) {
@@ -29,15 +33,13 @@ if (lookFor.length > 0) {
     if (test) {
       var address = ''
       if (test[1] === undefined) {
-        address = test[4] + '\x1b[32m' + test[5] + '\x1b[0m'
+        address = test[4] + test[5]
       } else {
-        address = test[1] + '\x1b[32m' + test[2] + '\x1b[0m' + test[3]
+        address = test[1] + test[2] + test[3]
       }
-      process.stdout.write("\n");
-      console.log(' > Match: [ ' + address + ' ] with secret [ ' + account.secret + ' ]')
+      log(' > Match: [ ' + address + ' ] with secret [ ' + account.secret + ' ]\n')
     } else {
-      if (i % 100 === 0) process.stdout.write('.')
-      if (i % 1000 === 0) process.stdout.write("\r" + i + ' ')
+      if (i % 100000 === 0) process.stdout.write("\r" + i + ' ')
     }
   }
 
@@ -46,4 +48,11 @@ if (lookFor.length > 0) {
   console.log('Eg. "node ' + process.argv[1] + ' johndoe mywallet pepper"')
   console.log('')
   process.exit(0)
+}
+
+function log(text) {
+  // add a line to a lyric file, using appendFile
+  fs.appendFileSync('xrpwallet.log', text+"\n", (err) => {  
+    if (err) log(JSON.stringify(err));
+  });
 }
