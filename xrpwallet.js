@@ -1,10 +1,10 @@
 const rippleLib  = require('ripple-lib').RippleAPI
 const fs         = require('fs')
 const api        = new rippleLib()
-const lookFor    = process.argv.slice(2).map(function (f) { return f.toLowerCase().replace(/[^a-zA-Z0-9]/g, '') })
+const lookFor    = []//process.argv.slice(2).map(function (f) { return f.toLowerCase().replace(/[^a-zA-Z0-9]/g, '') })
 
-console.log('\x1b[36m%s\x1b[0m', 'XRP Vanity Wallet Generator')
-console.log('\x1b[36m%s\x1b[0m', '   by @WietseWind (Twitter) /u/pepperew (Reddit)')
+console.log('XRP Vanity Wallet Generator')
+console.log('   by @WietseWind (Twitter) /u/pepperew (Reddit)')
 console.log('')
 
 //only look for nixer - make it possible to start with pm2
@@ -39,7 +39,7 @@ if (lookFor.length > 0) {
       }
       log(' > Match: [ ' + address + ' ] with secret [ ' + account.secret + ' ]\n')
     } else {
-      if (i % 100000 === 0) process.stdout.write("\r" + i + ' ')
+      if (i % 100000 === 0) console.log(new Date().toLocaleString() + ": checked " + i + " addresses... still continuing!")
     }
   }
 
