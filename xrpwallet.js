@@ -8,7 +8,8 @@ console.log('   by @WietseWind (Twitter) /u/pepperew (Reddit)')
 console.log('')
 
 //only look for nixer - make it possible to start with pm2
-lookFor.push('nixer')
+lookFor.push('aphael');
+lookFor.push('apha3l');
 
 if (lookFor.length > 0) {
 
@@ -16,7 +17,7 @@ if (lookFor.length > 0) {
   lookFor.forEach(function (k) {
     console.log('   - ', k)
   })
-  var re = '^(r)(' + lookFor.join('|') + ')(.+)$|^(r.+)(' + lookFor.join('|') + ')$'
+  var re = '^(r)(' + lookFor.join('|') + ')(.+)$'
   console.log(' ')
   console.log('For the geeks: testing regular expression: ')
   console.log('  ', re)
