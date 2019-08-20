@@ -38,9 +38,9 @@ if (lookFor.length > 0) {
       } else {
         address = test[1] + test[2] + test[3]
       }
-      log(' > Match: [ ' + address + ' ] with secret [ ' + account.secret + ' ]\n')
+      log('\n > Match: [ ' + address + ' ] with secret [ ' + account.secret + ' ]\n')
     } else {
-      if (i % 1000000 === 0) console.log(new Date().toLocaleString() + ": checked " + i + " addresses... still continuing!")
+      if (i % 1000000 === 0) log(new Date().toLocaleString() + ": checked " + i + " addresses... still continuing!")
     }
   }
 
