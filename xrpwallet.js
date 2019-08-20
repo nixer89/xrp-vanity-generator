@@ -9,7 +9,10 @@ console.log('')
 
 //only look for nixer - make it possible to start with pm2
 lookFor.push('aphael');
+lookFor.push('4phael');
+lookFor.push('aph4el');
 lookFor.push('apha3l');
+lookFor.push('aphae1');
 
 if (lookFor.length > 0) {
 
