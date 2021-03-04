@@ -8,11 +8,14 @@ console.log('   by @WietseWind (Twitter) /u/pepperew (Reddit)')
 console.log('')
 
 //only look for nixer - make it possible to start with pm2
-lookFor.push('aphael');
-lookFor.push('4phael');
-lookFor.push('aph4el');
-lookFor.push('apha3l');
-lookFor.push('aphae1');
+lookFor.push('eleaser');
+lookFor.push('3leaser');
+lookFor.push('3l3aser');
+lookFor.push('3leas3r');
+lookFor.push('el3as3r');
+lookFor.push('3l3as3r');
+lookFor.push('eleas3r');
+
 
 if (lookFor.length > 0) {
 
